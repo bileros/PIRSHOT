@@ -10,7 +10,7 @@ import picamera
 GPIO.setmode(GPIO.BCM)
 
 # Define GPIO to use on Pi
-GPIO_PIR = 7
+GPIO_PIR = 4
 
 # Set pin as input
 GPIO.setup(GPIO_PIR,GPIO.IN)
@@ -36,8 +36,8 @@ try:
       # PIR is triggered
       print "  Motion detected!"
       with picamera.PiCamera() as camera:
-          camera.resolution = (640, 480)
-          camera.capture('../data/image.jpg')
+          camera.resolution = (1920, 1080)
+          camera.capture('../data/shot.jpg')
       # Record previous state
       Previous_State=1
     elif Current_State==0 and Previous_State==1:
